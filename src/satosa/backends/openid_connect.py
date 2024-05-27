@@ -59,7 +59,7 @@ class OpenIDConnectBackend(BackendModule):
         self.auth_callback_func = auth_callback_func
         self.config = config
         cfg_verify_ssl = config["client"].get("verify_ssl", True)
-        oidc_settings = PyoidcSettings(verify_ssl=cfg_verify_ssl)
+        oidc_settings = PyoidcSettings(verify_ssl=cfg_verify_ssl,timeout=10)
 
         try:
             self.client = _create_client(
